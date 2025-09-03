@@ -1,0 +1,1332 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈氏集团 - 创新引领未来</title>
+    <!-- 引入外部资源 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F3460',      // 深蓝主色
+                        secondary: '#E6B325',    // 金色辅助色
+                        dark: '#1A1A2E',         // 深色背景
+                        light: '#F6F6F6',        // 浅色背景
+                        neutral: '#535C68'       // 中性色
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif']
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义样式 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+            }
+            .transition-navbar {
+                transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #0F3460 0%, #1A3A6C 100%);
+            }
+        }
+    </style>
+    
+    <!-- 引入字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+</head>
+
+<body class="font-sans text-gray-800 bg-light antialiased">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-navbar py-4">
+        <div class="container mx-auto px-4 md:px-8">
+            <nav class="flex items-center justify-between">
+                <!-- 品牌标志 -->
+                <a href="#" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                        <span class="text-white font-display font-bold text-xl">陈</span>
+                    </div>
+                    <span class="font-display font-bold text-xl text-primary dark:text-white">陈氏集团</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">关于我们</a>
+                    <a href="#business" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">业务板块</a>
+                    <a href="#news" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">新闻动态</a>
+                    <a href="#investors" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">投资者关系</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">联系我们</a>
+                    <a href="#" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        加入我们
+                    </a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
+                    <i class="fa fa-bars text-2xl"></i>
+                </button>
+            </nav>
+            
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 bg-white rounded-lg shadow-xl p-4 absolute left-4 right-4 transition-all duration-300 transform origin-top">
+                <div class="flex flex-col space-y-4">
+                    <a href="#about" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">关于我们</a>
+                    <a href="#business" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">业务板块</a>
+                    <a href="#news" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">新闻动态</a>
+                    <a href="#investors" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">投资者关系</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium py-2">联系我们</a>
+                    <a href="#" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-all duration-300 text-center shadow-lg">
+                        加入我们
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- 背景图片 -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1067/1920/1080" alt="陈氏集团办公大楼外观" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-primary/60"></div>
+        </div>
+        
+        <!-- 内容 -->
+        <div class="container mx-auto px-4 md:px-8 relative z-10 text-center">
+            <h1 class="font-display font-bold text-[clamp(2.5rem,6vw,5rem)] text-white leading-tight text-shadow-lg mb-6 animate-[fadeIn_1s_ease-in-out]">
+                创新引领未来<br>实力铸就辉煌
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 max-w-3xl mx-auto mb-10 text-shadow animate-[fadeIn_1.2s_ease-in-out]">陈氏集团创立于2023年，以卓越品质和创新精神，为全球客户创造价值，推动行业进步</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-[fadeIn_1.4s_ease-in-out]">
+                <a href="#business" class="bg-secondary hover:bg-secondary/90 text-primary px-8 py-4 rounded-lg transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    探索业务
+                </a>
+                <a href="#about" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-lg transition-all duration-300 font-bold">
+                    了解我们
+                </a>
+            </div>
+        </div>
+        
+        <!-- 向下滚动指示器 -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fa fa-angle-down text-3xl"></i>
+        </div>
+    </section>
+
+    <!-- 集团简介 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-medium">关于陈氏集团</span>
+                <h2 class="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] text-primary mt-2 mb-4">
+                    立足本土，放眼全球
+                </h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h3 class="font-display font-bold text-2xl text-gray-800 mb-4">集团概况</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        陈氏集团创立于2023年，是一家以多元化经营为特色的新兴大型企业集团。自成立以来，集团始终秉持"诚信、创新、卓越、共赢"的核心价值观，在多个领域迅速崛起并取得了令人瞩目的成就。
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        目前，集团业务涵盖房地产开发、金融投资、科技创新、健康医疗等多个板块，在全国10多个省市设有分支机构，核心团队包括陈宁芝、陈涛涛、陈紫珊和陈展博等行业精英，员工总数超过1,200人。
+                    </p>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">2+</div>
+                            <div class="text-gray-600">创立年限</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">4</div>
+                            <div class="text-gray-600">核心产业</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">10+</div>
+                            <div class="text-gray-600">国内分支</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-primary mb-2">1.2k+</div>
+                            <div class="text-gray-600">员工总数</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+                        查看集团详情 <i class="fa fa-long-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="order-1 md:order-2 relative">
+                    <img src="https://picsum.photos/id/1073/800/600" alt="陈氏集团总部大楼" class="w-full h-auto rounded-lg shadow-xl">
+                    <div class="absolute -bottom-6 -left-6 bg-secondary text-primary p-6 rounded-lg shadow-lg hidden md:block">
+                        <div class="text-4xl font-bold mb-1">2023</div>
+                        <div class="font-medium">集团成立</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业理念 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-medium">企业理念</span>
+                <h2 class="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] text-primary mt-2 mb-4">
+                    我们的核心价值观
+                </h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="max-w-3xl mx-auto mt-6 text-gray-600">
+                    陈氏集团的核心价值观是我们一切行动的指南，塑造了我们的企业文化，指导我们的业务决策
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 价值观1 -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-handshake-o text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-4">诚信正直</h3>
+                    <p class="text-gray-600">
+                        坚守商业道德，信守承诺，以诚信为企业立足之本，赢得客户与社会的信赖。
+                    </p>
+                </div>
+                
+                <!-- 价值观2 -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-lightbulb-o text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-4">创新驱动</h3>
+                    <p class="text-gray-600">
+                        鼓励创新思维，持续技术研发，以创新引领行业发展，保持企业核心竞争力。
+                    </p>
+                </div>
+                
+                <!-- 价值观3 -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-trophy text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-4">追求卓越</h3>
+                    <p class="text-gray-600">
+                        精益求精，不断超越自我，以卓越的产品和服务满足客户需求，创造更大价值。
+                    </p>
+                </div>
+                
+                <!-- 价值观4 -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-users text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-4">合作共赢</h3>
+                    <p class="text-gray-600">
+                        秉持开放心态，建立良好合作关系，与员工、客户、合作伙伴共同成长，实现共赢。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 发展历程 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-medium">发展历程</span>
+                <h2 class="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] text-primary mt-2 mb-4">
+                    陈氏集团的成长足迹
+                </h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="relative">
+                <!-- 时间线 -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20"></div>
+                
+                <!-- 时间点1 -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 mt-8 md:mt-0">
+                            <h3 class="font-display font-bold text-2xl text-primary mb-2">集团成立</h3>
+                            <p class="text-gray-600 mb-4">
+                                陈氏集团正式成立，由陈宁芝、陈涛涛、陈紫珊和陈展博共同创立，确立多元化发展战略。
+                            </p>
+                            <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
+                                2023年
+                            </span>
+                        </div>
+                        
+                        <div class="md:w-12 relative order-1 md:order-2">
+                            <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mx-auto z-10 relative shadow-lg">
+                                <i class="fa fa-flag"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
+                    </div>
+                </div>
+                
+                <!-- 时间点2 -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+                        
+                        <div class="md:w-12 relative order-1">
+                            <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mx-auto z-10 relative shadow-lg">
+                                <i class="fa fa-building"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-2 mt-8 md:mt-0">
+                            <h3 class="font-display font-bold text-2xl text-primary mb-2">业务布局</h3>
+                            <p class="text-gray-600 mb-4">
+                                集团完成房地产与金融投资两大核心板块布局，在长三角地区落地首个综合体项目。
+                            </p>
+                            <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
+                                2023年底
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 时间点3 -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 mt-8 md:mt-0">
+                            <h3 class="font-display font-bold text-2xl text-primary mb-2">科技板块成立</h3>
+                            <p class="text-gray-600 mb-4">
+                                成立科技创新子公司，聚焦人工智能与数字化转型，推出首款智慧园区解决方案。
+                            </p>
+                            <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
+                                2024年
+                            </span>
+                        </div>
+                        
+                        <div class="md:w-12 relative order-1 md:order-2">
+                            <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mx-auto z-10 relative shadow-lg">
+                                <i class="fa fa-sitemap"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
+                    </div>
+                </div>
+                
+                <!-- 时间点4 -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+                        
+                        <div class="md:w-12 relative order-1">
+                            <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mx-auto z-10 relative shadow-lg">
+                                <i class="fa fa-globe"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-2 mt-8 md:mt-0">
+                            <h3 class="font-display font-bold text-2xl text-primary mb-2">区域扩张</h3>
+                            <p class="text-gray-600 mb-4">
+                                集团业务扩展至10个省市，员工规模突破1000人，健康医疗板块正式启动。
+                            </p>
+                            <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
+                                2024年底
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 时间点5 -->
+                <div class="relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1 mt-8 md:mt-0">
+                            <h3 class="font-display font-bold text-2xl text-primary mb-2">战略升级</h3>
+                            <p class="text-gray-600 mb-4">
+                                集团启动"十四五"战略规划，加大科技创新投入，布局绿色能源与大健康产业。
+                            </p>
+                            <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
+                                2025年至今
+                            </span>
+                        </div>
+                        
+                        <div class="md:w-12 relative order-1 md:order-2">
+                            <div class="w-10 h-10 rounded-full bg-secondary text-primary flex items-center justify-center mx-auto z-10 relative shadow-lg">
+                                <i class="fa fa-rocket"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 业务板块 -->
+    <section id="business" class="py-20 bg-gradient-primary text-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-medium">核心业务</span>
+                <h2 class="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] text-white mt-2 mb-4">
+                    多元化产业布局
+                </h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="max-w-3xl mx-auto mt-6 text-white/80">
+                    陈氏集团深耕四大核心业务板块，构建多元化产业生态系统，实现协同发展
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 业务1 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden group hover:bg-white/15 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1031/600/400" alt="房地产开发业务" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-home text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-3">房地产开发</h3>
+                        <p class="text-white/80 mb-4">
+                            涵盖住宅、商业、文旅等多种类型地产项目，打造高品质生活与工作空间。
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 高端住宅开发
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 商业综合体
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 智慧园区建设
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center text-secondary font-medium hover:text-white transition-colors">
+                            了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 业务2 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden group hover:bg-white/15 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/180/600/400" alt="金融投资业务" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-bank text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-3">金融投资</h3>
+                        <p class="text-white/80 mb-4">
+                            提供多元化金融服务，涉及股权投资、资产管理、融资租赁等多个领域。
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 私募股权基金
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 财富管理
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 金融科技
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center text-secondary font-medium hover:text-white transition-colors">
+                            了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 业务3 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden group hover:bg-white/15 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/160/600/400" alt="科技创新业务" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-microchip text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-3">科技创新</h3>
+                        <p class="text-white/80 mb-4">
+                            专注于人工智能、大数据、物联网等前沿技术研发与应用，驱动产业升级。
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 人工智能研发
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 智慧城市解决方案
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 数字化转型服务
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center text-secondary font-medium hover:text-white transition-colors">
+                            了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 业务4 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden group hover:bg-white/15 transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/96/600/400" alt="健康医疗业务" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-heartbeat text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-3">健康医疗</h3>
+                        <p class="text-white/80 mb-4">
+                            构建从健康管理到专科医疗的完整健康产业链，提供高品质医疗健康服务。
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 高端医疗机构
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 健康管理服务
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fa fa-check text-secondary mr-2"></i> 医药研发
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center text-secondary font-medium hover:text-white transition-colors">
+                            了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 代表项目 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-medium">精品项目</span>
+                <h2 class="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] text-primary mt-2 mb-4">
+                    我们的代表作品
+                </h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 项目1 -->
+                <div class="group relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src="https://picsum.photos/id/1048/600/400" alt="陈氏中心大厦" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <span class="text-secondary text-sm font-medium">房地产开发</span>
+                        <h3 class="font-display font-bold text-xl mt-1 mb-2">陈氏中心大厦</h3>
+                        <p class="text-white/80 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            位于城市核心商务区的地标性建筑，集办公、商业、文化于一体的综合体项目。
+                        </p>
+                        <a href="#" class="inline-flex items-center text-white font-medium hover:text-secondary transition-colors">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 项目2 -->
+                <div class="group relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src="https://picsum.photos/id/1059/600/400" alt="智慧产业园" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <span class="text-secondary text-sm font-medium">科技创新</span>
+                        <h3 class="font-display font-bold text-xl mt-1 mb-2">智慧产业园</h3>
+                        <p class="text-white/80 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            融合人工智能、大数据技术的高科技产业园区，吸引众多科技企业入驻。
+                        </p>
+                        <a href="#" class="inline-flex items-center text-white font-medium hover:text-secondary transition-colors">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 项目3 -->
+                <div class="group relative rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                    <img src="https://picsum.photos/id/96/600/400" alt="康泰国际医院" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <span class="text-secondary text-sm font-medium">健康医疗</span>
+                        <h3 class="font-display font-bold text-xl mt-1 mb-2">康泰国际医院</h3>
+                        <p class="text-white/80 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            国际化高端医疗机构，提供全方位的健康管理与医疗服务。
+                        </p>
+                        <a href="#" class="inline-flex items-center text-white font-medium hover:text-secondary transition-colors">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg transition-all duration-300 font-bold shadow-lg hover:shadow-xl">
+                    查看全部项目
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻动态 -->
+    <section id="news" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-medium">新闻资讯</span>
+                <h2 class="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] text-primary mt-2 mb-4">
+                    集团最新动态
+                </h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 新闻1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1071/600/400" alt="陈氏集团与国际科技公司达成战略合作" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-4">
+                            <i class="fa fa-calendar mr-2"></i>
+                            <span>2025年6月15日</span>
+                            <span class="mx-2">|</span>
+                            <span>集团新闻</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-3 hover:text-primary transition-colors">
+                            <a href="#">陈氏集团与国际科技公司达成战略合作</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            陈氏集团今日宣布与全球领先的科技公司签署战略合作协议，共同推进人工智能在传统产业的应用...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+                            阅读全文 <i class="fa fa-long-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 新闻2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1042/600/400" alt="陈氏集团发布2024年年度财报" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-4">
+                            <i class="fa fa-calendar mr-2"></i>
+                            <span>2025年4月10日</span>
+                            <span class="mx-2">|</span>
+                            <span>财务资讯</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-3 hover:text-primary transition-colors">
+                            <a href="#">陈氏集团发布2024年年度财报</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            陈氏集团公布2024年财务报告，集团营收突破50亿元，同比增长120%，各业务板块表现强劲...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+                            阅读全文 <i class="fa fa-long-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 新闻3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1058/600/400" alt="陈氏集团启动乡村振兴公益项目" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-4">
+                            <i class="fa fa-calendar mr-2"></i>
+                            <span>2025年3月5日</span>
+                            <span class="mx-2">|</span>
+                            <span>社会责任</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-3 hover:text-primary transition-colors">
+                            <a href="#">陈氏集团启动乡村振兴公益项目</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            陈氏集团宣布投入1亿元启动乡村振兴公益项目，将在教育、医疗、产业发展等方面助力农村地区发展...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors">
+                            阅读全文 <i class="fa fa-long-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg transition-all duration-300 font-bold">
+                    查看更多新闻
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 投资者关系 -->
+    <section id="investors" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-medium">投资者关系</span>
+                <h2 class="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] text-primary mt-2 mb-4">
+                    财务表现与投资者服务
+                </h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="max-w-3xl mx-auto mt-6 text-gray-600">
+                    陈氏集团致力于为投资者创造长期价值，保持透明、规范的信息披露，构建互信共赢的投资者关系
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- 财务图表 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                    <h3 class="font-display font-bold text-xl mb-6">近三年营收趋势 (亿元)</h3>
+                    <div class="h-80">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- 财务数据 -->
+                <div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <!-- 数据1 -->
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <span class="text-gray-500 text-sm">2024年总营收</span>
+                                    <h4 class="font-display font-bold text-3xl text-primary mt-1">52.8</h4>
+                                    <span class="text-green-500 text-sm font-medium flex items-center mt-2">
+                                        <i class="fa fa-arrow-up mr-1"></i> 同比增长120%
+                                    </span>
+                                </div>
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <i class="fa fa-line-chart text-primary text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 数据2 -->
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <span class="text-gray-500 text-sm">2024年净利润</span>
+                                    <h4 class="font-display font-bold text-3xl text-primary mt-1">6.5</h4>
+                                    <span class="text-green-500 text-sm font-medium flex items-center mt-2">
+                                        <i class="fa fa-arrow-up mr-1"></i> 同比增长95%
+                                    </span>
+                                </div>
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <i class="fa fa-money text-primary text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 数据3 -->
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <span class="text-gray-500 text-sm">资产总额</span>
+                                    <h4 class="font-display font-bold text-3xl text-primary mt-1">186</h4>
+                                    <span class="text-green-500 text-sm font-medium flex items-center mt-2">
+                                        <i class="fa fa-arrow-up mr-1"></i> 同比增长150%
+                                    </span>
+                                </div>
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <i class="fa fa-diamond text-primary text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 数据4 -->
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <span class="text-gray-500 text-sm">负债率</span>
+                                    <h4 class="font-display font-bold text-3xl text-primary mt-1">45.2%</h4>
+                                    <span class="text-red-500 text-sm font-medium flex items-center mt-2">
+                                        <i class="fa fa-arrow-down mr-1"></i> 同比下降5.4%
+                                    </span>
+                                </div>
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                    <i class="fa fa-balance-scale text-primary text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 财务报告 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg">
+                        <h3 class="font-display font-bold text-xl mb-4">最新财务报告</h3>
+                        <ul class="space-y-4">
+                            <li class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div>
+                                    <h4 class="font-medium">2024年年度报告</h4>
+                                    <span class="text-gray-500 text-sm">发布于 2025年3月15日</span>
+                                </div>
+                                <a href="#" class="text-primary hover:text-primary/80 transition-colors">
+                                    <i class="fa fa-download mr-1"></i> 下载
+                                </a>
+                            </li>
+                            <li class="flex justify-between items-center pb-4 border-b border-gray-200">
+                                <div>
+                                    <h4 class="font-medium">2024年第四季度报告</h4>
+                                    <span class="text-gray-500 text-sm">发布于 2025年1月20日</span>
+                                </div>
+                                <a href="#" class="text-primary hover:text-primary/80 transition-colors">
+                                    <i class="fa fa-download mr-1"></i> 下载
+                                </a>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-medium">2024年第三季度报告</h4>
+                                    <span class="text-gray-500 text-sm">发布于 2024年10月25日</span>
+                                </div>
+                                <a href="#" class="text-primary hover:text-primary/80 transition-colors">
+                                    <i class="fa fa-download mr-1"></i> 下载
+                                </a>
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary/80 transition-colors mt-6">
+                            查看全部报告 <i class="fa fa-long-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 社会责任 -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-medium">社会责任</span>
+                <h2 class="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] text-white mt-2 mb-4">
+                    回馈社会，共创美好未来
+                </h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="max-w-3xl mx-auto mt-6 text-white/80">
+                    陈氏集团始终秉持"取之于社会，用之于社会"的理念，积极履行企业社会责任，推动可持续发展
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 责任1 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-8 hover:bg-white/15 transition-all duration-300">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-leaf text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-4">环境保护</h3>
+                    <p class="text-white/80 mb-6">
+                        集团致力于绿色发展，推行环保理念，在项目开发和运营中采用节能环保技术，减少环境影响。
+                    </p>
+                    <ul class="space-y-3 text-white/80 mb-6">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>所有新建项目100%达到绿色建筑标准</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>实施碳中和计划，2030年前实现碳达峰</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>投资绿色能源项目，推动清洁能源使用</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 责任2 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-8 hover:bg-white/15 transition-all duration-300">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-book text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-4">教育支持</h3>
+                    <p class="text-white/80 mb-6">
+                        集团关注教育事业发展，通过设立奖学金、援建学校、开展教育扶贫等方式支持教育事业。
+                    </p>
+                    <ul class="space-y-3 text-white/80 mb-6">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>设立"陈氏教育基金"，资助贫困学生完成学业</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>在偏远地区开展支教活动，改善教育资源</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>开展职业技能培训，帮助青年就业创业</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 责任3 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-8 hover:bg-white/15 transition-all duration-300">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-heart text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-4">公益慈善</h3>
+                    <p class="text-white/80 mb-6">
+                        集团积极参与公益慈善事业，在扶贫济困、救灾救难、医疗健康等领域贡献力量。
+                    </p>
+                    <ul class="space-y-3 text-white/80 mb-6">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>累计捐赠善款超过1亿元用于公益事业</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>开展乡村振兴项目，帮扶50个贫困村</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>建设10所乡村卫生院，改善基层医疗条件</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-white/5 backdrop-blur-sm rounded-lg p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-8 md:mb-0 md:pr-8">
+                        <h3 class="font-display font-bold text-2xl mb-4">2024年社会责任报告</h3>
+                        <p class="text-white/80 mb-6">
+                            查看陈氏集团2024年度社会责任报告，了解我们在环境保护、社会责任和公司治理方面的实践与成果。
+                        </p>
+                        <a href="#" class="inline-flex items-center bg-secondary hover:bg-secondary/90 text-primary px-6 py-3 rounded-lg transition-all duration-300 font-bold shadow-lg">
+                            <i class="fa fa-file-pdf-o mr-2"></i> 下载报告
+                        </a>
+                    </div>
+                    <div class="md:w-1/3">
+                        <img src="https://picsum.photos/id/1059/600/400" alt="社会责任活动" class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-medium">联系我们</span>
+                <h2 class="font-display font-bold text-[clamp(1.8rem,4vw,3rem)] text-primary mt-2 mb-4">
+                    欢迎咨询与合作
+                </h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="max-w-3xl mx-auto mt-6 text-gray-600">
+                    无论您是寻求商业合作、人才招聘还是其他咨询，我们都将竭诚为您服务
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <!-- 联系信息 -->
+                <div class="lg:col-span-2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg h-full">
+                        <h3 class="font-display font-bold text-2xl mb-6">联系方式</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-map-marker text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-lg mb-1">总部地址</h4>
+                                    <p class="text-gray-600">中国上海市浦东新区陆家嘴金融中心88号陈氏大厦</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-phone text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-lg mb-1">联系电话</h4>
+                                    <p class="text-gray-600">+86 21 8888 8888</p>
+                                    <p class="text-gray-600">+86 21 8888 8889</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-lg mb-1">电子邮箱</h4>
+                                    <p class="text-gray-600">info@chensgroup.com</p>
+                                    <p class="text-gray-600">contact@chensgroup.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10">
+                            <h4 class="font-medium text-lg mb-4">关注我们</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors">
+                                    <i class="fa fa-weixin"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors">
+                                    <i class="fa fa-weibo"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors">
+                                    <i class="fa fa-youtube-play"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10">
+                            <h4 class="font-medium text-lg mb-4">集团分支机构</h4>
+                            <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                                <option>北京分公司</option>
+                                <option>广州分公司</option>
+                                <option>深圳分公司</option>
+                                <option>杭州分公司</option>
+                                <option>成都分公司</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 联系表单 -->
+                <div class="lg:col-span-3">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                        <h3 class="font-display font-bold text-2xl mb-6">发送消息</h3>
+                        
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                                    <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="请输入您的姓名">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">电子邮箱</label>
+                                    <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="请输入您的电子邮箱">
+                                </div>
+                                
+                                <div>
+                                    <label for="phone" class="block text-gray-700 font-medium mb-2">联系电话</label>
+                                    <input type="tel" id="phone" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="请输入您的联系电话">
+                                </div>
+                                
+                                <div>
+                                    <label for="subject" class="block text-gray-700 font-medium mb-2">咨询主题</label>
+                                    <select id="subject" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors">
+                                        <option value="">请选择咨询主题</option>
+                                        <option value="cooperation">商业合作</option>
+                                        <option value="investment">投资咨询</option>
+                                        <option value="job">人才招聘</option>
+                                        <option value="project">项目咨询</option>
+                                        <option value="other">其他问题</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">留言内容</label>
+                                <textarea id="message" rows="6" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" placeholder="请输入您的留言内容"></textarea>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="form-checkbox h-5 w-5 text-primary rounded">
+                                    <span class="ml-2 text-gray-700">我同意陈氏集团根据隐私政策处理我的个人信息</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-all duration-300 font-bold shadow-lg hover:shadow-xl">
+                                发送消息
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作伙伴 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-display font-bold text-2xl md:text-3xl text-primary">
+                    战略合作伙伴
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+                <div class="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                    <img src="https://picsum.photos/id/101/200/80" alt="合作伙伴1" class="h-12 object-contain">
+                </div>
+                <div class="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                    <img src="https://picsum.photos/id/102/200/80" alt="合作伙伴2" class="h-12 object-contain">
+                </div>
+                <div class="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                    <img src="https://picsum.photos/id/103/200/80" alt="合作伙伴3" class="h-12 object-contain">
+                </div>
+                <div class="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                    <img src="https://picsum.photos/id/104/200/80" alt="合作伙伴4" class="h-12 object-contain">
+                </div>
+                <div class="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                    <img src="https://picsum.photos/id/105/200/80" alt="合作伙伴5" class="h-12 object-contain">
+                </div>
+                <div class="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                    <img src="https://picsum.photos/id/106/200/80" alt="合作伙伴6" class="h-12 object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-primary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- 集团简介 -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
+                            <span class="text-primary font-display font-bold text-xl">陈</span>
+                        </div>
+                        <span class="font-display font-bold text-xl text-white">陈氏集团</span>
+                    </div>
+                    <p class="text-white/70 mb-6">
+                        陈氏集团创立于2023年，是一家以多元化经营为特色的大型企业集团，业务涵盖房地产、金融、科技、健康等多个领域。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-colors">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 快速链接 -->
+                <div>
+                    <h4 class="font-display font-bold text-lg mb-6">快速链接</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-white/70 hover:text-secondary transition-colors">关于我们</a></li>
+                        <li><a href="#business" class="text-white/70 hover:text-secondary transition-colors">业务板块</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-secondary transition-colors">管理团队</a></li>
+                        <li><a href="#news" class="text-white/70 hover:text-secondary transition-colors">新闻动态</a></li>
+                        <li><a href="#investors" class="text-white/70 hover:text-secondary transition-colors">投资者关系</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-secondary transition-colors">加入我们</a></li>
+                        <li><a href="#contact" class="text-white/70 hover:text-secondary transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 业务板块 -->
+                <div>
+                    <h4 class="font-display font-bold text-lg mb-6">业务板块</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-white/70 hover:text-secondary transition-colors">房地产开发</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-secondary transition-colors">金融投资</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-secondary transition-colors">科技创新</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-secondary transition-colors">健康医疗</a></li>
+                        <li><a href="#" class="text-white/70 hover:text-secondary transition-colors">项目展示</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 联系信息 -->
+                <div>
+                    <h4 class="font-display font-bold text-lg mb-6">联系我们</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-secondary mt-1 mr-3"></i>
+                            <span class="text-white/70">中国上海市浦东新区陆家嘴金融中心88号陈氏大厦</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone text-secondary mt-1 mr-3"></i>
+                            <span class="text-white/70">+86 21 8888 8888</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope text-secondary mt-1 mr-3"></i>
+                            <span class="text-white/70">info@chensgroup.com</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-6">
+                        <h5 class="font-medium mb-3">订阅集团动态</h5>
+                        <form class="flex">
+                            <input type="email" placeholder="您的邮箱地址" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                            <button type="submit" class="bg-secondary hover:bg-secondary/90 text-primary px-4 py-2 rounded-r-lg transition-colors">
+                                <i class="fa fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-white/50 text-sm mb-4 md:mb-0">
+                        © 2025 陈氏集团 版权所有 | 沪ICP备12345678号
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">隐私政策</a>
+                        <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">使用条款</a>
+                        <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">法律声明</a>
+                        <a href="#" class="text-white/50 hover:text-white text-sm transition-colors">网站地图</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-white', 'shadow-lg', 'py-2');
+                navbar.classList.remove('py-4');
+                
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-lg', 'py-2');
+                navbar.classList.add('py-4');
+                
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动菜单
+                mobileMenu.classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 返回顶部
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 财务图表
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        const revenueChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2023', '2024', '2025(预测)'],
+                datasets: [{
+                    label: '集团营收',
+                    data: [24.0, 52.8, 86.5],
+                    backgroundColor: 'rgba(15, 52, 96, 0.1)',
+                    borderColor: '#0F3460',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#0F3460',
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 52, 96, 0.9)',
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 13
+                        },
+                        padding: 12,
+                        cornerRadius: 6
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value + ' 亿';
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+
+</body></html>
